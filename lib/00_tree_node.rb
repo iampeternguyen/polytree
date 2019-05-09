@@ -16,7 +16,16 @@ class PolyTreeNode
     @parent.children.push(self) unless @parent.children.include?(self)
   end
 
-  def add_child
-
+  def add_child(child)
+    child.parent = self
   end
+
+  def remove_child(child)
+    if @children.include?(child)
+          child.parent = nil
+    else
+      raise "nodei s not a child"
+    end
+  end
+
 end
